@@ -21,4 +21,19 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   $("#currentDay").text(dayjs().format("D/MM/YY"))
+  console.log(dayjs().hour())
+  $("textarea").each(function(){
+    console.log($(this))
+    var textareaid= parseInt($(this).attr("id"))
+    console.log(textareaid)
+    if(textareaid== dayjs().hour()){
+      $(this).addClass("present")
+    }
+    if(textareaid>dayjs().hour()){
+      $(this).addClass("future")
+    }
+   if(textareaid<dayjs().hour()){
+    $(this).addClass("past")
+   }
+  })
 });
