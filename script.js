@@ -37,3 +37,32 @@ $(function () {
    }
   })
 });
+
+
+$(document).ready(function(){
+  $('.saveBtn').on('click',function(){
+
+    console.log("Inside Click")
+    console.log($(this))
+    let textareaid= $(this).data('textarea-id')
+  
+    let content= $(this).prev().val()
+
+
+    let notesdata= {
+      "notes_number":textareaid,
+      "notes_text": content,
+    }
+    let localStoragedata= JSON.parse(localStorage.getItem('notesdata'))
+  
+    if(localStoragedata){
+      localStoragedata.push(notesdata)
+    }else{
+      localStoragedata=[]
+      localStoragedata.push(notesdata)
+    }
+  
+    localStorage.setItem("notesdata",JSON.stringify(localStoragedata))
+  })
+  
+})
