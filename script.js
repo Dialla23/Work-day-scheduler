@@ -44,25 +44,35 @@ $(document).ready(function(){
 
     console.log("Inside Click")
     console.log($(this))
-    let textareaid= $(this).data('textarea-id')
+   
   
     let content= $(this).prev().val()
-
-
-    let notesdata= {
-      "notes_number":textareaid,
-      "notes_text": content,
-    }
-    let localStoragedata= JSON.parse(localStorage.getItem('notesdata'))
+var textarea_valu= $(this).siblings("textarea").val()
+var textareaid = $(this).siblings("textarea").attr("id")
+console.log(textarea_valu)
+localStorage.setItem(textareaid,textarea_valu)
+    // let notesdata= {
+    //   "notes_number":textareaid,
+    //   "notes_text": content,
+    // }
+    // let localStoragedata= JSON.parse(localStorage.getItem('notesdata'))
   
-    if(localStoragedata){
-      localStoragedata.push(notesdata)
-    }else{
-      localStoragedata=[]
-      localStoragedata.push(notesdata)
-    }
+    // if(localStoragedata){
+    //   localStoragedata.push(notesdata)
+    // }else{
+    //   localStoragedata=[]
+    //   localStoragedata.push(notesdata)
+    // }
   
-    localStorage.setItem("notesdata",JSON.stringify(localStoragedata))
+    // localStorage.setItem("notesdata",JSON.stringify(localStoragedata))
   })
-  
+  $("#9").val(localStorage.getItem("9"))
+  $("#10").val(localStorage.getItem("10"))
+  $("#11").val(localStorage.getItem("11"))
+  $("#12").val(localStorage.getItem("12"))
+  $("#13").val(localStorage.getItem("13"))
+  $("#14").val(localStorage.getItem("14"))
+  $("#15").val(localStorage.getItem("15"))
+  $("#16").val(localStorage.getItem("16"))
+  $("#17").val(localStorage.getItem("17"))
 })
